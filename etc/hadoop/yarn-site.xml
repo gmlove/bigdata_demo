@@ -21,18 +21,6 @@
     </property>
 
 <property>
-        <name>yarn.log-aggregation-enable</name>
-        <value>true</value>
-    </property>
-<property>
-        <name>yarn.resourcemanager.hostname</name>
-        <value>hd01-1</value>
-    </property>
-<property>
-        <name>yarn.resourcemanager.webapp.address</name>
-        <value>localhost:8088</value>
-    </property>
-<property>
         <name>yarn.resourcemanager.hostname</name>
         <value>hd01-1</value>
     </property>
@@ -40,8 +28,30 @@
         <name>yarn.log-aggregation-enable</name>
         <value>true</value>
     </property>
-<property>
-        <name>yarn.log-aggregation-enable</name>
-        <value>true</value>
+
+<!-- fix node unhealthy issue -->
+<!-- `yarn node -list -all` report node unhealthy with message indicate no disk space (disk space check failed) -->
+    <property>
+        <name>yarn.nodemanager.disk-health-checker.max-disk-utilization-per-disk-percentage</name>
+        <value>99.9</value>
     </property>
+
+<!-- fix spark job submit issue -->
+    <property>
+        <name>yarn.nodemanager.pmem-check-enabled</name>
+        <value>false</value>
+    </property>
+
+    <property>
+        <name>yarn.nodemanager.vmem-check-enabled</name>
+        <value>false</value>
+    </property>
+
+
+<!-- to fix issue: 'Failed while trying to construct...' (http://blog.51yip.com/hadoop/2066.html) -->
+    <property>
+         <name>yarn.log.server.url</name>
+         <value>http://hd01-1:19888/jobhistory/logs</value>
+    </property>
+
 </configuration>

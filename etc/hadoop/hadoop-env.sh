@@ -30,6 +30,7 @@ export JAVA_HOME=/usr/lib/jvm/java
 # protocol.  Jsvc is not required if SASL is configured for authentication of
 # data transfer protocol using non-privileged ports.
 #export JSVC_HOME=${JSVC_HOME}
+export JSVC_HOME=/usr/bin
 
 export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-"/etc/hadoop"}
 
@@ -48,11 +49,11 @@ done
 
 # Enable extra debugging of Hadoop's JAAS binding, used to set up
 # Kerberos security.
-# export HADOOP_JAAS_DEBUG=true
+export HADOOP_JAAS_DEBUG=true
 
 # Extra Java runtime options.  Empty by default.
 # For Kerberos debugging, an extended option set logs more invormation
-# export HADOOP_OPTS="-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=true -Dsun.security.spnego.debug"
+export HADOOP_OPTS="-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=true -Dsun.security.spnego.debug"
 export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true"
 
 # Command specific options appended to HADOOP_OPTS when specified
@@ -77,14 +78,16 @@ fi
 # to provide authentication of data transfer protocol.  This **MUST NOT** be
 # defined if SASL is configured for authentication of data transfer protocol
 # using non-privileged ports.
-export HADOOP_SECURE_DN_USER=${HADOOP_SECURE_DN_USER}
+# export HADOOP_SECURE_DN_USER=${HADOOP_SECURE_DN_USER}
+export HADOOP_SECURE_DN_USER=root
 
 # Where log files are stored.  $HADOOP_HOME/logs by default.
 #export HADOOP_LOG_DIR=${HADOOP_LOG_DIR}/$USER
 export HADOOP_LOG_DIR=/hd/tmp/logs
 
 # Where log files are stored in the secure data environment.
-#export HADOOP_SECURE_DN_LOG_DIR=${HADOOP_LOG_DIR}/${HADOOP_HDFS_USER}
+# export HADOOP_SECURE_DN_LOG_DIR=${HADOOP_LOG_DIR}/${HADOOP_HDFS_USER}
+export HADOOP_SECURE_DN_LOG_DIR=${HADOOP_LOG_DIR}/root
 
 ###
 # HDFS Mover specific parameters
@@ -109,7 +112,7 @@ export HADOOP_LOG_DIR=/hd/tmp/logs
 ###
 
 # The directory where pid files are stored. /tmp by default.
-# NOTE: this should be set to a directory that can only be written to by 
+# NOTE: this should be set to a directory that can only be written to by
 #       the user that will run the hadoop daemons.  Otherwise there is the
 #       potential for a symlink attack.
 export HADOOP_PID_DIR=${HADOOP_PID_DIR}

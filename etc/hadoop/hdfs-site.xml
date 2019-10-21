@@ -17,16 +17,89 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-<property>
+    <property>
         <name>dfs.replication</name>
         <value>2</value>
     </property>
-<property>
+    <property>
         <name>dfs.namenode.name.dir</name>
         <value>/hd/namenode</value>
     </property>
-<property>
+    <property>
         <name>dfs.datanode.data.dir</name>
         <value>/hd/datanode</value>
     </property>
+
+
+
+    <!-- <property>
+        <name>dfs.data.transfer.protection</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.http.policy</name>
+        <value>HTTPS_ONLY</value>
+    </property> -->
+    <property>
+        <name>dfs.block.access.token.enable</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.namenode.keytab.file</name>
+        <value>/hd/conf/hadoop.keytab</value>
+    </property>
+    <property>
+        <name>dfs.namenode.kerberos.principal</name>
+        <value>root/_HOST@HADOOP.COM</value>
+    </property>
+    <property>
+        <name>dfs.namenode.kerberos.internal.spnego.principal</name>
+        <value>HTTP/_HOST@HADOOP.COM</value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.principal</name>
+        <value>HTTP/_HOST@HADOOP.COM</value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.keytab</name>
+        <value>/hd/conf/hadoop.keytab</value>
+    </property>
+    <property>
+        <name>dfs.datanode.keytab.file</name>
+        <value>/hd/conf/hadoop.keytab</value>
+    </property>
+    <property>
+        <name>dfs.datanode.kerberos.principal</name>
+        <value>root/_HOST@HADOOP.COM</value>
+    </property>
+
+    <property>
+        <name>dfs.datanode.address</name>
+        <value>0.0.0.0:1004</value>
+    </property>
+    <property>
+        <name>dfs.datanode.http.address</name>
+        <value>0.0.0.0:1006</value>
+    </property>
+
+    <property>
+        <name>dfs.journalnode.keytab.file</name>
+        <value>/hd/conf/hadoop.keytab</value>
+    </property>
+    <property>
+        <name>dfs.journalnode.kerberos.principal</name>
+        <value>root/_HOST@HADOOP.COM</value>
+    </property>
+    <property>
+        <name>dfs.journalnode.kerberos.internal.spnego.principal</name>
+        <value>HTTP/_HOST@HADOOP.COM</value>
+    </property>
+
+
+
+
 </configuration>
+
+
+
+
