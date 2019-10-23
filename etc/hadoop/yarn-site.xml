@@ -29,6 +29,7 @@
         <value>true</value>
     </property>
 
+
 <!-- fix node unhealthy issue -->
 <!-- `yarn node -list -all` report node unhealthy with message indicate no disk space (disk space check failed) -->
     <property>
@@ -53,5 +54,52 @@
          <name>yarn.log.server.url</name>
          <value>http://hd01-1:19888/jobhistory/logs</value>
     </property>
+
+
+<!-- kerberose auth -->
+    <property>
+      <name>yarn.resourcemanager.principal</name>
+      <value>root/_HOST@HADOOP.COM</value>
+    </property>
+    <property>
+      <name>yarn.resourcemanager.keytab</name>
+      <value>/hd/conf/hadoop.keytab</value>
+    </property>
+    <property>
+      <name>yarn.resourcemanager.webapp.https.address</name>
+      <value>${yarn.resourcemanager.hostname}:8090</value>
+    </property>
+
+    <property>
+      <name>yarn.nodemanager.principal</name>
+      <value>root/_HOST@HADOOP.COM</value>
+    </property>
+    <property>
+      <name>yarn.nodemanager.keytab</name>
+      <value>/hd/conf/hadoop.keytab</value>
+    </property>
+
+    <!-- <property>
+      <name>yarn.nodemanager.container-executor.class</name>
+      <value>org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor</value>
+    </property>
+    <property>
+      <name>yarn.nodemanager.linux-container-executor.group</name>
+      <value>root</value>
+    </property>
+    <property>
+      <name>yarn.nodemanager.linux-container-executor.path</name>
+      <value></value>
+    </property> -->
+
+    <property>
+      <name>yarn.web-proxy.principal</name>
+      <value>root/_HOST@HADOOP.COM</value>
+    </property>
+    <property>
+      <name>yarn.web-proxy.keytab</name>
+      <value>/hd/conf/hadoop.keytab</value>
+    </property>
+
 
 </configuration>
