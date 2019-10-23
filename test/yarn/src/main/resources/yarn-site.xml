@@ -1,6 +1,37 @@
 <configuration>
   <property>
     <name>yarn.resourcemanager.hostname</name>
-    <value>localhost</value>
+    <value>hd01-1</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.principal</name>
+    <value>root/hd01-1@HADOOP.COM</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.keytab</name>
+    <value>/hd/conf/hadoop.keytab</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.webapp.https.address</name>
+    <value>${yarn.resourcemanager.hostname}:8090</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.principal</name>
+    <value>root/hd01-1@HADOOP.COM</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.keytab</name>
+    <value>/hd/conf/hadoop.keytab</value>
+  </property>
+
+  <property>
+    <name>yarn.web-proxy.principal</name>
+    <value>root/hd01-1@HADOOP.COM</value>
+  </property>
+  <property>
+    <name>yarn.web-proxy.keytab</name>
+    <value>/hd/conf/hadoop.keytab</value>
   </property>
 </configuration>

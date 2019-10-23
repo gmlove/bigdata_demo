@@ -58,7 +58,7 @@ Create and submit application to yarn programmatically
 
 1. map remote yarn port: `ssh -L 8032:hd01-1:8032 root@rhd01-1`
 2. map remote hadoop port(may not needed): `ssh -L 9000:hd01-1:9000 root@rhd01-1`
-3. build and upload jar: `mvn package && scp yarn/target/hadoop-yarn-1.0-SNAPSHOT.jar rhd01-1:/tmp && ssh rhd01-1 "hadoop dfs -put -f /tmp/hadoop-yarn-1.0-SNAPSHOT.jar /tmp"`
+3. build and upload jar: `mvn package && scp yarn/target/hadoop-yarn-1.0-SNAPSHOT.jar rhd01-1:/tmp && ssh rhd01-1 "source ~/dev/projects/hadoop/hadoop/env; hadoop dfs -put -f /tmp/hadoop-yarn-1.0-SNAPSHOT.jar /tmp"`
 4. add `core-site.xml` and `yarn-site.xml` to `src/resources/` (change related host to localhost)
 5. run locally
 

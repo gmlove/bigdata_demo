@@ -1,4 +1,4 @@
-package parquet;
+package yarn;
 
 import java.io.File;
 import java.io.IOException;
@@ -131,7 +131,9 @@ public class Client {
   
   public static void main(String[] args) throws Exception {
     // ls 3 /tmp/hadoop-yarn-1.0-SNAPSHOT.jar
-    Client c = new Client();
-    c.run(args);
+    Login.loginThenDo(() -> {
+      Client c = new Client();
+      c.run(args);
+    });
   }
 }

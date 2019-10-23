@@ -3,7 +3,7 @@ sync:
 	scp Makefile ai01:dev/hadoop/
 
 sync-code:
-	rsync -r ./test/ rhd01-1:dev/projects/hadoop/test/
+	rsync -r --exclude='*/target' ./test/ rhd01-1:dev/projects/hadoop/test/
 
 stop-cluster:
 	ssh rhd01-1 'cd dev/projects/hadoop/hadoop && sbin/stop-dfs.sh && sbin/stop-yarn.sh && sbin/mr-jobhistory-daemon.sh stop historyserver'
